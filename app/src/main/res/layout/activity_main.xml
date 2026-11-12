@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Корневой контейнер экрана -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Горизонтальное разделение экрана на две равные части -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Левая часть: список пользователей -->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp" />
+
+        <!-- Правая часть: контейнер для панели профиля и заглушки -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F5F5F5">
+
+            <!-- Текст-заглушка, отображается пока панель скрыта -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Выберите пользователя"
+                android:textColor="#888888"
+                android:textSize="16sp" />
+
+            <!-- Сама панель профиля (скрыта по умолчанию) -->
+            <FrameLayout
+                android:id="@+id/userPanel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:visibility="gone">
+
+                <!-- Кнопка "Назад" в левом верхнем углу -->
+                <ImageButton
+                    android:onClick="BackToList"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/baseline_keyboard_backspace_24"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="20dp"
+                    android:contentDescription="Назад"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp" />
+
+                <!-- Кнопка "Редактировать" в правом верхнем углу -->
+                <ImageButton
+                    android:onClick="EditUser"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/baseline_edit_24"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="20dp"
+                    android:contentDescription="Редактировать"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp" />
+
+                <!-- Блок с информацией о пользователе, выровнен по центру -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="120dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <!-- Имя пользователя -->
+                    <TextView
+                        android:id="@+id/NameTextView"
+                        style="@style/NameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <!-- Статус пользователя -->
+                    <TextView
+                        android:id="@+id/StateTextView"
+                        style="@style/StateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="18sp" />
+
+                    <!-- Возраст пользователя -->
+                    <TextView
+                        android:id="@+id/AgeTextView"
+                        style="@style/BaseContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </FrameLayout>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>
