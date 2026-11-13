@@ -10,4 +10,9 @@ public class Transform {
         }
         return parse;
     }
+
+    public static Boolean StringNoNull(String string) {
+        if (string == null) return false;
+        else return string.length() != 0;
+    }
 }

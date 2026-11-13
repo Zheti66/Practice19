@@ -7,6 +7,13 @@ public class UserStaticInfo {
     public static List<User> users = new ArrayList<>();
     public static final String POSITION = "position";
 
+    public static final String USERS_PROFILE_INFO = "UsersProfileInfo";
+
+    public static String profileId;
+    public static final String USERS_SIGN_IN_INFO = "UsersSignInInfo";
+    public static final String PASSWORD = "password";
+    public static final String PROFILE_ID = "profileId";
+
     public UserStaticInfo() {
         if (users.size() == 0) {
             AddUsersInList();

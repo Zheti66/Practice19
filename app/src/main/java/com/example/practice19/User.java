@@ -12,6 +12,9 @@ public class User {
         StateSignal = stateSignal;
     }
 
+    public User() {
+    }
+
     public String getName() { return Name; }
     public void setName(String name) { Name = name; }
 
